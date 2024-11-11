@@ -5,21 +5,19 @@
 
 class Manager : public Angajat {
     private:
-        char* departament;
+        string departament;
         int numarAngajatiSupervizati;
         double bonus;
     public:
-        Manager(int id, const char* nume, const char* prenume, const char* dataNasterii, const char* dataAngajarii,double coefSalariu, const char* departament, int numarAngajatiSupervizati, double bonus);
-
-        Manager(const Manager& altManager);
-
-        Manager& operator=(const Manager& altManager);
+        Manager(int id, int aniVechime, const string nume, const string prenume, const string dataNasterii, const string dataAngajarii, double coefSalariu, const string departament, int numarAngajatiSupervizati, double bonus);
 
         ~Manager();
 
         void afisare() const;
 
-        double calculSalariu(int aniVechime) const;
+        double calculSalariu() const;
+
+        
 
 };
 

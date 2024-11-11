@@ -6,15 +6,14 @@
 class AsistentLibrar : public Librar {
     private:
         int oreSuplimentare;
-        int numarCartiAranjatePeZi;
-        bool suportClienti;
+        
 
     public:
-        AsistentLibrar(int id, const char* nume, const char* prenume, const char* dataNasterii, const char* dataAngajarii, double coefSalariu, const char* sectiuneResponsabilitate, int experientaAni, int oreSuplimentare, int numarCartiAranjatePeZi, bool suportClienti);
+        AsistentLibrar(int id, int aniVechime, const string nume, const string prenume, const string dataNasterii, const string dataAngajarii, double coefSalariu, const string sectiuneResponsabilitate, int oreSuplimentare);
 
         void afisare() const;
 
-        double calculSalariu(int aniVechime) const;
+        double calculSalariu() const;
 
 };
 

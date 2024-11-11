@@ -1,21 +1,17 @@
 #include "AsistentLibrar.h"
 
-AsistentLibrar::AsistentLibrar(int id, const char* nume, const char* prenume, const char* dataNasterii, const char* dataAngajarii, double coefSalariu, const char* sectiuneResponsabilitate, int experientaAni, int oreSuplimentare, int numarCartiAranjatePeZi, bool suportClienti) : Librar(id,nume,prenume,dataNasterii,dataAngajarii,coefSalariu,sectiuneResponsabilitate,experientaAni), oreSuplimentare(oreSuplimentare), numarCartiAranjatePeZi(numarCartiAranjatePeZi), suportClienti(suportClienti){
-    this->coefSalariu = 1.5;
-}
+ AsistentLibrar::AsistentLibrar(int id, int aniVechime, const string nume, const string prenume, const string dataNasterii, const string dataAngajarii, double coefSalariu, const string sectiuneResponsabilitate, int oreSuplimentare) :
+ Librar(id, aniVechime, nume, prenume, dataAngajarii, dataAngajarii, coefSalariu, sectiuneResponsabilitate), oreSuplimentare(oreSuplimentare) {}
+
 
 void AsistentLibrar::afisare() const {
     cout << "Asistent ";
     Librar::afisare();
-    cout << "Ore suplimentare: " << oreSuplimentare <<", Numar carti aranjate pe zi:" << numarCartiAranjatePeZi << "Suport clienti: ";
-    if(suportClienti){
-        cout << "Da";
-    } else {
-        cout << "Nu";
-    }
+    cout << "Ore suplimentare: " << oreSuplimentare << "Suport clienti: ";
+    
     cout << '\n';
 }
 
-double AsistentLibrar::calculSalariu(int aniVechime) const {
+double AsistentLibrar::calculSalariu() const {
         return (aniVechime * coefSalariu * 1500) + (oreSuplimentare * 20); 
 }

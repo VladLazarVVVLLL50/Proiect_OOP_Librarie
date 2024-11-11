@@ -6,8 +6,9 @@
 class CarteAudio : public Carte {
     private:
         double durata;
+        
     public:
-        CarteAudio(const char* ISBN, const char* titlu, const char* numeAutor, int anPublicare, bool disponibilitate, double durata);
+        CarteAudio(const string ISBN, const string titlu, const string numeAutor, int anPublicare, double durata);
 
         double calculPret() const;
 

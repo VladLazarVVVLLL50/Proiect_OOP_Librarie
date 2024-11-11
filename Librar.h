@@ -1,25 +1,46 @@
 #ifndef LIBRAR_H
 #define LIBRAR_H
 #include "Angajat.h"
+#include "Comanda.h"
+#include <thread>
+#include <chrono>
+#include <mutex>
 #pragma once
 
 class Librar : public Angajat {
     protected:
-        char* sectiuneResponsabilitate;
-        int experientaAni;
+        string sectiuneResponsabilitate;
+
+        int nrComenziGestionate;
+        int sumaComenziGestionate;
+        vector<Comanda*> comenziGestionate;
+        vector <thread> threaduriActive;
+        mutex mtx;
+
+        
+        
+        
     
     public:
-        Librar(int id, const char* nume, const char* prenume, const char* dataNasterii, const char* dataAngajarii, double coefSalariu, const char* sectiuneResponsabilitate, int experientaAni);
-
-        Librar(const Librar& altManager);
-
-        Librar& operator=(const Librar& altManager);
+        Librar(int id, int aniVechime, const string nume, const string prenume, const string dataNasterii, const string dataAngajarii, double coefSalariu, const string sectiuneResponsabilitate);
 
         ~Librar();
 
         void afisare() const;
 
-        double calculSalariu(int aniVechime) const;
+        double calculSalariu() const;
+
+        void setNrComenziGestionate(int nrComenziGestionate);
+
+        int getNrComenziGestionate();
+
+        int getSumaComenziGestionate();
+
+        int getNrComenziGestionateInOData(string Data);
+
+        void procesareComanda(Comanda* comanda);
+
+        void joinThreaduriComplete();
 
    
 

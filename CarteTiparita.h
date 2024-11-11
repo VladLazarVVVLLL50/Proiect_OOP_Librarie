@@ -3,16 +3,24 @@
 #include "Carte.h"
 #pragma once
 
-class CarteTiparita : Carte {
+class CarteTiparita : public Carte {
     private: 
         int nrPagini;
+        int numarExemplare;
     
     public:
-        CarteTiparita(const char* ISBN, const char* titlu, const char* numeAutor, int anPublicare, bool disponibilitate, int nrPagini);
+        CarteTiparita(const string ISBN, const string titlu, const string numeAutor, int anPublicare, int nrPagini, int numarExemplare);
 
         double calculPret() const;
 
         void afisare() const;
+
+        void plusNumarExemplare();
+
+        void minusNumarExemplare();
+
+        int getNumarExemplare();
+
 };
 
 #endif

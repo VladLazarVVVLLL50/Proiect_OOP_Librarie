@@ -1,31 +1,33 @@
 #ifndef ANGAJAT_H
 #define ANGAJAT_H
 #include <iostream>
-#include "string.h"
+#include <string>
 using namespace std;
 #pragma once
 
 class Angajat {
     protected:
         int id;
-        char* nume;
-        char* prenume;
-        char* dataNasterii;
-        char* dataAngajarii;
+        int aniVechime;
+        string nume;
+        string prenume;
+        string dataNasterii;
+        string dataAngajarii;
         double coefSalariu;
 
     public:
-        Angajat(int id, const char* nume, const char* prenume, const char* dataNasterii, const char* dataAngajarii, double coefSalariu);
+        Angajat(int id, int aniVechime, const string nume, const string prenume, const string dataNasterii, const string dataAngajarii, double coefSalariu);
         
-        Angajat(const Angajat& altAngajat);
+        
+        void setID(int ID);
 
-        Angajat& operator=(const Angajat& altAngajat);
+        int getID();
 
         virtual ~Angajat();
 
         virtual void afisare() const;
 
-        virtual double calculSalariu(int aniVechime) const = 0; // Functie virtuala pentru calculul salariului ce va fi definita in clasele derivate.
+        virtual double calculSalariu() const = 0; // Functie virtuala pentru calculul salariului ce va fi definita in clasele derivate.
 };
 
 #endif
